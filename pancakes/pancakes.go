@@ -37,14 +37,17 @@ func getFlipCount(stack string, numberOfFlips int) int {
 
 func flipPancakes(stack string) string {
 	var regex *regexp.Regexp
+	var replacementString string
 	// determine if flipping happy or blank side pancakes
 	if strings.HasPrefix(stack, "+") {
 		regex = regexp.MustCompile(`^\++`)
+		replacementString = "-"
 	} else {
 		regex = regexp.MustCompile(`^\-+`)
+		replacementString = "+"
 	}
 
 	numberToFlip := len(regex.FindString(stack))
 
-	return regex.ReplaceAllString(stack, strings.Repeat(stack[:1], numberToFlip))
+	return regex.ReplaceAllString(stack, strings.Repeat(replacementString, numberToFlip))
 }
