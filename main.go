@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"pancakes/pancakes"
+	"github.com/jthorup84/pancakes/pancakes"
 )
 
 func main() {
